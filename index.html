@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+		<title>PWA Presentation</title>
+	</head>
+
+	<body>
+		<nav>
+			<button class="prev">&larr;</button>
+			<button class="next">&rarr;</button>
+		</nav>
+
+		<section id="section-1">
+			<h1>PWAs</h1>
+			<h2 data-reveal="1">Web apps with native capabilities</h2>
+		</section>
+		<style>
+			#section-1 {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				text-align: center;
+			}
+			#section-1 h1 {
+				font-size: 2.5em;
+			}
+		</style>
+
+		<section id="section-2">
+			<h1>Taps to Pixels</h1>
+			<div reveal="1" class="table">
+				<div class="stage browser">
+					<h2>Browser</h2>
+					<div class="component">
+						<h3>CPU</h3>
+						<div class="tag">Multi-core</div>
+						<div class="tag">SIMD</div>
+						<div class="tag">C++</div>
+						<div class="tag">Rust</div>
+					</div>
+					<div class="component">
+						<h3>GPU</h3>
+						<div class="tag">Vulkan</div>
+						<div class="tag">DX12</div>
+						<div class="tag">Metal</div>
+					</div>
+				</div>
+				<div class="arrow">&larr;</div>
+				<div class="stage app">
+					<h2>App</h2>
+					<div class="stages">
+						<span class="component interfaces">
+							<div>HTML</div>
+							<div>CSS</div>
+							<div>APIs</div>
+						</span>
+						<div class="arrow">&larr;</div>
+						<span class="component">
+							<h3>Javascript</h3>
+							<div class="blockers">
+								<div class="tag">Business logic</div>
+								<div class="tag">Framework</div>
+								<div class="tag">Polyfills</div>
+								<div class="tag">Animations</div>
+							</div>
+						</span>
+					</div>
+				</div>
+				<div class="arrow user">&larr;</div>
+				<div class="stage user">
+					<h2>User</h2>
+					<div>
+						<svg viewBox="0 0 225 225">
+							<path d="m63 27 11-11m-30 3.3v-15m-18 23-11-11m3.4 29h-16m23 19-11 11m55 63c-13 7.9-9.2 26 4.8 34 10 5.9 38 20 68 49l78-45c-9-20-4.4-36-14-52-15-27-17-31-26-45-2.3-3.3-4.7-12-13-9.7-13 3.9-7.8 17-7.8 17s-9.7-21-23-17c-13 3.6-8.6 22-8.6 22s-8.4-20-23-13c-13 6.8-6.5 20-6.5 20l-43-60s-7.9-8.5-16-3.2c-7 4.7-8.3 13-5.3 18 1.9 3.5 53 87 53 87" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
+		<style>
+			#section-2 {
+				display: flex;
+				flex-direction: column;
+			}
+			#section-2 .table {
+				width: 100%;
+				flex-grow: 1;
+				display: flex;
+			}
+			#section-2 .table h2 {
+				text-align: center;
+			}
+			#section-2 .table > :not(.arrow) {
+				flex-basis: 1px;
+				flex-grow: 1;
+			}
+			#section-2 .stage {
+				display: flex;
+				flex-direction: column;
+			}
+			#section-2 .stage.browser {
+				flex-basis: 5em;
+				flex-grow: 0;
+			}
+			#section-2 .stage.app .interfaces {
+				flex-grow: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			#section-2 .stage.user {
+				flex-basis: 5em;
+				flex-grow: 1;
+			}
+			#section-2 .stage.user > div {
+				flex-grow: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#section-2 .stage.user svg {
+				flex-grow: 1;
+				width: 4em;
+				height: 4em;
+			}
+			#section-2 .component {
+				flex-grow: 1;
+				border: 2px solid white;
+				border-radius: .5em;
+				padding: .3em;
+				margin-bottom: .5em;
+				display: flex;
+				flex-direction: column;
+			}
+			#section-2 .blockers {
+				flex-grow: 1;
+				display: flex;
+			}
+			#section-2 .blockers .tag {
+				writing-mode: vertical-rl;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: opacity .5s, width .5s .5s, margin-right .5s .5s;
+				padding: 0;
+			}
+			#section-2 .blockers .tag:not(.eliminate) {
+				width: 4em;
+				margin-right: .5em;
+				opacity: 1;
+			}
+			#section-2 .blockers .tag.eliminate {
+				opacity: 0;
+				width: 0;
+				margin-right: 0;
+			}
+			#section-2 .table .arrow {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 2em;
+				width: 1em;
+				flex-shrink: 0;
+				flex-grow: 0;
+				font-weight: bold;
+			}
+			#section-2 .table > .arrow {
+				padding-top: 1.1em;
+			}
+			#section-2 .table .arrow.user {
+				flex-grow: 1;
+			}
+			#section-2 .tags {
+				padding: .2em;
+			}
+			#section-2 .tag {
+				font-size: .7em;
+				font-weight: bold;
+				border-radius: .4em;
+				padding: 0 .3em;
+				margin-bottom: .2em;
+				cursor: pointer;
+			}
+			#section-2 .stage.browser .tag { background: #e76f51; }
+			#section-2 .stage.app     .tag { background: #e9c46a; }
+			#section-2 .stages {
+				display: flex;
+				flex-grow: 1;
+			}
+			#section-2 .stages > * {
+				flex-grow: 1;
+			}
+		</style>
+		<script>
+			document.getElementById('section-2').onclick = event => {
+				const tag = event.target.closest('.tag');
+				if (tag) {
+					tag.classList.add('eliminate');
+				}
+			}
+		</script>
+
+		<section id="section-3">
+			<h1>Pipeline</h1>
+			<div class="graph">
+				<span class="milestone">
+					<img src="images/idea.svg">
+					IDEA
+				</span>
+				<span class="block odd" style="--block-odd: 4;">
+					<label>Set up project</label>
+				</span>
+				<span class="iterate">
+					<span class="block even" style="--block-even: 4; min-width: 12vw;">
+						<label>Write code</label>
+					</span>
+					<span class="block odd" style="--block-odd: 3;">
+						<label>Build</label>
+					</span>
+					<span class="block even" style="--block-even: 3;">
+						<label>Run</label>
+					</span>
+					<span class="block odd" style="--block-odd: 2; min-width: 8vw;">
+						<label>Test</label>
+					</span>
+					<div class="loop"></div>
+				</span>
+				<span class="iterate">
+					<span class="block even" style="--block-even: 2;">
+						<label>Submit</label>
+					</span>
+					<span class="block odd" style="--block-odd: 1;">
+						<label>Approval</label>
+					</span>
+					<span class="block even" style="--block-even: 1;">
+						<label>Fix</label>
+					</span>
+					<div class="loop"></div>
+				</span>
+				<span class="milestone">
+					<img src="images/release.svg">
+					RELEASE
+				</span>
+			</div>
+		</section>
+		<style>
+			#section-3 {
+				display: flex;
+				flex-direction: column;
+			}
+			#section-3 .graph {
+				flex-grow: 1;
+				z-index: 1;
+				display: flex;
+				justify-content: stretch;
+				align-items: center;
+			}
+			#section-3 .milestone {
+				padding: 5vw;
+				font-size: 1.3em;
+				font-weight: bold;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			#section-3 .milestone img {
+				width:  8vw;
+				height: 8vw;
+				margin: 1vw;
+			}
+			#section-3 .iterate {
+				display: flex;
+				justify-content: stretch;
+				align-items: center;
+				position: relative;
+			}
+			#section-3 .iterate .loop {
+				position: absolute;
+				top: calc(100% + 1.7vw);
+				left: 1vw;
+				right: 2.5vw;
+				height: 1vw;
+				background: #4b81ff;
+			}
+			#section-3 .iterate .loop::before {
+				content: '';
+				display: block;
+				width: 3vw;
+				height: 3vw;
+				position: absolute;
+				left: -1.5vw;
+				bottom: 0;
+				background: no-repeat center / contain url('data:image/svg+xml,\
+					<svg viewBox="0 0 .47 .47" xmlns="http://www.w3.org/2000/svg">\
+						<path d="m0.16 0.14-0.078-0.086-0.078 0.086v0.094c0 0.062 0.024 0.12 0.068 0.17 0.044 0.044 0.1 0.068 0.17 0.068 0.043 0 0.078-0.035 0.078-0.078s-0.035-0.078-0.078-0.078c-0.021 0-0.04-0.0088-0.055-0.023s-0.023-0.034-0.023-0.055v-0.094z" fill="%234b81ff"/>\
+					</svg>\
+				');
+			}
+			#section-3 .iterate .loop::after {
+				content: '';
+				display: block;
+				width: 3vw;
+				height: 3vw;
+				position: absolute;
+				right: -1.5vw;
+				bottom: 0;
+				background: no-repeat center / contain url('data:image/svg+xml,\
+					<svg viewBox="0 0 .47 .47" xmlns="http://www.w3.org/2000/svg">\
+						<path d="m0.39 0.23a0.16 0.16 0 0 1-0.16 0.16" fill="none" stroke="%234b81ff" stroke-width=".16"/>\
+					</svg>\
+				');
+			}
+			#section-3 .milestone:first-of-type {
+				margin-right: auto;
+			}
+			#section-3 .milestone:last-of-type {
+				margin-left: auto;
+			}
+			#section-3 .block {
+				background-color: #264653;
+				height: 4vw;
+				width: 3vw;
+				min-width: 2vw;
+				margin-right: 1vw;
+				position: relative;
+			}
+			#section-3 .block label {
+				position: absolute;
+				width: 30vw;
+				font-size: .8em;
+				color: #264653;
+			}
+			#section-3 .block label::before {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 1px;
+				background: #264653;
+			}
+			#section-3 .block.odd label { bottom: calc(100% + (3vw * var(--block-odd))); }
+			#section-3 .block.odd label::before { top: 100%; bottom: calc((-3vw * var(--block-odd)) + .5vw); }
+			#section-3 .block.even label { top: calc(100% + (3vw * var(--block-even))); }
+			#section-3 .block.even label::before { top: calc((-3vw * var(--block-even)) + 3.5vw); bottom: 100%; }
+		</style>
+		<script>
+			document.querySelector('#section-3 .graph').onwheel = event => {
+				const block = event.target.closest('.block');
+				if (block) {
+					const newWidth = Math.max(1, (parseInt(block.style.minWidth) || 4) + (event.deltaY > 0 ? -1 : 1));
+					block.style.minWidth = `${newWidth}vw`;
+				}
+			}
+			document.querySelector('#section-3 .graph').onclick = event => {
+				const block = event.target.closest('.block');
+				if (block) {
+					block.remove();
+					return;
+				}
+				const iterate = event.target.closest('.iterate');
+				if (iterate) {
+					iterate.remove();
+				}
+			}
+		</script>
+
+		<section id="section-4">
+			<h1>Examples</h1>
+			<div class="examples">
+				<div>
+					<img class="logo" src="images/uber-logo.svg">
+					<div class="phone">
+						<img src="images/uber_get-moving.png">
+					</div>
+					<div class="phone">
+						<img src="images/uber_map.png">
+					</div>
+				</div>
+				<div>
+					<img class="logo" src="images/spotify-logo.svg">
+					<div class="laptop">
+						<img src="images/spotify.png">
+					</div>
+				</div>
+				<div>
+					<img class="logo" src="images/iometer-logo.svg">
+					<div class="phone">
+						<img src="images/iometer-flower-phone.png">
+					</div>
+					<div class="laptop">
+						<img src="images/iometer-flower-laptop.png">
+					</div>
+				</div>
+			</div>
+		</section>
+		<style>
+			#section-4 {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+			#section-4 .examples {
+				flex-grow: 1;
+				overflow-y: auto;
+				scrollbar-width: none;
+				scroll-behavior: smooth;
+				scroll-snap-type: y mandatory;
+			}
+			#section-4 .examples > div {
+				margin-bottom: 5vw;
+				display: flex;
+				align-items: center;
+				height: 85vh;
+				scroll-snap-align: center;
+			}
+			#section-4 .logo {
+				width: 12vw;
+				height: 12vw;
+				margin: 7vw;
+				filter: drop-shadow(0 .5vw 1.5vw rgba(0, 0, 0, .4));
+			}
+			#section-4 .phone {
+				margin: 2vw;
+				--height: 35vw;
+				height: var(--height);
+				--aspect-ratio: 490 / 1037;
+				width: calc(var(--height) * var(--aspect-ratio));
+				position: relative;
+				box-shadow: .2vw .5vw calc(var(--height) / 35) black;
+				border-radius: calc(var(--height) / 14);
+				background: black;
+			}
+			#section-4 .phone img {
+				position: absolute;
+				top: 5.0%;
+				left: 3.5%;
+				width: 93%;
+				height: 92.4%;
+			}
+			#section-4 .phone::after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: no-repeat center / contain url('images/pixel4.png');
+			}
+			#section-4 .laptop {
+				margin: 2vw;
+				--height: 25vw;
+				height: var(--height);
+				--aspect-ratio: 1.71;
+				width: calc(var(--height) * var(--aspect-ratio));
+				position: relative;
+			}
+			#section-4 .laptop img {
+				position: absolute;
+				top: 6.9%;
+				left: 11.5%;
+				width: 77%;
+				height: 82%;
+			}
+			#section-4 .laptop::after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: no-repeat center / contain url('images/macbook.png');
+			}
+		</style>
+
+		<section id="section-5">
+			<div class="features">
+				<div data-browsers="chrome firefox safari"> Accelerometer & Gyroscope </div>
+				<div data-browsers="chrome firefox safari"> Notch-aware CSS </div>
+				<div data-browsers="chrome firefox safari"> WebRTC data channels </div>
+				<div data-browsers="chrome firefox safari"> Pointer events </div>
+				<div data-browsers="chrome firefox"       > Push notifications </div>
+				<div data-browsers="chrome firefox"       > HTTP/3 </div>
+				<div data-browsers="chrome firefox"       > registerProtocolHandler </div>
+				<div data-browsers="chrome firefox"       > PWAs in the Play Store! </div>
+				<div data-browsers="chrome"               > Web manifest orientation  </div>
+				<div data-browsers="chrome"               > WebUSB & WebHID </div>
+				<div data-browsers="chrome"               > Serial API </div>
+				<div data-browsers="chrome"               > BarcodeDetector API </div>
+				<div data-browsers="chrome"               > Web Bluetooth API </div>
+				<div data-browsers=""                     > WebGPU </div>
+				<div data-browsers=""                     > WebTransport </div>
+				<div data-browsers=""                     > CSS Houdini </div>
+			</div>
+			<div class="browsers">
+				<img src="images/chrome-icon.svg"  data-browser="chrome">
+				<img src="images/firefox-icon.svg" data-browser="firefox">
+				<img src="images/safari-icon.svg"  data-browser="safari">
+			</div>
+		</section>
+		<style>
+			#section-5 {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				user-select: none;
+			}
+			#section-5 .features {
+				margin: 3vw;
+				font-size: 2em;
+				position: relative;
+				width: 100%;
+				height: 10vh;
+			}
+			#section-5 .features > div {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				transition: opacity .5s, transform .5s;
+				text-align: center;
+			}
+			#section-5 .features > div:not(.selected) {
+				opacity: 0;
+			}
+			#section-5 .features > div.selected {
+				opacity: 1;
+			}
+			#section-5 .features > div.above {
+				transform: translateY(-10vh);
+			}
+			#section-5 .features > div.below {
+				transform: translateY(10vh);
+			}
+			#section-5 .browsers img {
+				width:  8vw;
+				height: 8vw;
+				margin: 2vw;
+				transition: .5s filter;
+			}
+			#section-5 .browsers img.unavailable {
+				filter: grayscale(100%);
+			}
+		</style>
+		<script>
+			const features = [...document.querySelectorAll('#section-5 .features > div')];
+			const browsers = [...document.querySelectorAll('#section-5 .browsers > img')];
+			function selectFeature(el) {
+				const selectedIndex = features.indexOf(el);
+				features.forEach((feature, index) => {
+					feature.classList.toggle('above', index < selectedIndex);
+					feature.classList.toggle('selected', index === selectedIndex);
+					feature.classList.toggle('below', index > selectedIndex);
+				});
+				browsers.forEach(browser => {
+					browser.classList.toggle('unavailable', !el.dataset.browsers.split(' ').includes(browser.dataset.browser));
+				});
+			}
+			selectFeature(document.querySelector('#section-5 .features > div'));
+			document.querySelector('#section-5').onclick = event => {
+				event.preventDefault();
+				event.stopPropagation();
+				const selectedFeature = document.querySelector('#section-5 .features > .selected');
+				if (selectedFeature) {
+					if (event.pageY >= (window.innerHeight / 2) && selectedFeature.nextElementSibling) {
+						selectFeature(selectedFeature.nextElementSibling);
+					}
+					if (event.pageY < (window.innerHeight / 2) && selectedFeature.previousElementSibling) {
+						selectFeature(selectedFeature.previousElementSibling);
+					}
+				}
+			}
+		</script>
+
+		<section id="section-6">
+			<h1>Triforce of Power</h1>
+			<img src="images/devtools.png" data-reveal="1">
+			<div class="mdn-and-kate">
+				<img src="images/kate.png" data-reveal="2">
+				<img src="images/mdn.png" data-reveal="3">
+			</div>
+		</section>
+		<style>
+			#section-6 {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			#section-6 img {
+				margin: 1vw;
+				box-shadow: 0 .5vw 2vw black;
+			}
+			#section-6 img[src='images/devtools.png'].revealed {
+				height: 34vh;
+			}
+			#section-6 .mdn-and-kate img.revealed {
+				height: 35vh;
+			}
+		</style>
+
+		<section id="section-7">
+			<img src="images/berners-lee.jpg">
+			<h1 data-reveal="1">The web's existence is a miracle</h1>
+		</section>
+		<style>
+			#section-7 {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			#section-7 img {
+				height: 60vh;
+				object-fit: contain;
+				box-shadow: 0 .5vw 2vw black;
+			}
+			#section-7 h1 {
+				margin: 5vh;
+			}
+		</style>
+	</body>
+
+	<style>
+		html {
+			height: 100%;
+			scroll-behavior: smooth;
+			scroll-snap-type: x mandatory;
+			overflow-x: scroll;
+		}
+		body {
+			height: 100%;
+			margin: 0;
+			display: flex;
+			color: white;
+			font-family: sans-serif;
+			font-size: 2.5vw;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		h1 { font-size: 1.5em; height: 1.5em; line-height: 1.5em; margin: .2em 0; }
+		h2 { font-size: 1.2em; height: 1.2em; line-height: 1.2em; margin: .2em 0; }
+		h3 { font-size: 1.1em; height: 1.1em; line-height: 1.1em; margin: .2em 0; }
+		p  { font-size: 1.0em; height: 1.0em; line-height: 1.0em; margin: .3em 0; }
+
+		nav {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			width: 100px;
+			height: 50px;
+			z-index: 2;
+			display: flex;
+		}
+		nav button {
+			padding: 0;
+			margin: 5px;
+			border-width: 1px;
+			border-radius: 8px;
+			flex-grow: 1;
+			cursor: pointer;
+			font-size: 30px;
+		}
+
+		section {
+			scroll-snap-align: start;
+			flex: 0 0 100%;
+			width: 100%;
+			padding: 20px;
+		}
+		#section-1 { background: #264653; }
+		#section-2 { background: #2a9d8f; }
+		#section-3 { background: #e9c46a; }
+		#section-4 { background: #f4a261; }
+		#section-5 { background: #e76f51; }
+		#section-6 { background: #264653; }
+		#section-7 { background: #264653; }
+
+		[data-reveal] {
+			transition: height .5s, margin .5s, opacity .5s .5s;
+			overflow: hidden;
+		}
+		[data-reveal]:not(.revealed) {
+			height: 0;
+			margin: 0;
+			opacity: 0;
+		}
+		[data-reveal].revealed {
+			opacity: 1;
+		}
+	</style>
+
+	<script>
+		'use strict';
+
+		function nav(delta) {
+			let i = (parseInt(location.hash.slice('#section-'.length)) || 1) + delta;
+			i = Math.max(i, 1);
+			i = Math.min(i, document.querySelectorAll('section').length);
+			location.hash = `section-${i}`;
+		}
+		document.querySelector('nav .prev').onclick = () => nav(-1);
+		document.querySelector('nav .next').onclick = () => nav(1);
+		document.onkeydown = event => {
+			switch (event.keyCode) {
+				case 37: nav(-1); event.preventDefault(); break;
+				case 39: nav(1);  event.preventDefault(); break;
+			}
+		}
+
+		document.body.onclick = event => {
+			const section = event.target.closest('section');
+			if (section) {
+				section.dataset.revealed = (parseInt(section.dataset.revealed) || 0) + 1;
+				section.querySelectorAll(`[data-reveal='${section.dataset.revealed}']`).forEach(el => el.classList.add('revealed'));
+			}
+		}
+	</script>
+</html>

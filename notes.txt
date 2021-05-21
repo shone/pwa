@@ -1,0 +1,53 @@
+https://engineering.atspotify.com/2021/04/07/building-the-future-of-our-desktop-apps/ 
+https://devopsdirective.com/posts/2021/04/tiny-container-image/
+
+- Intro
+  - Description
+- Efficiency is magic.
+  - Loading times vs instant gratification.
+- Choosing to make a PWA because it can do things native apps can't
+- Javascript as a thin wrapper
+  - High-performance graphics code 'running-hot' and ready to be called.
+- Development pipelines compared.
+  - Dev environment setup
+  - Compilation
+  - Deployment
+  - Release
+- Breaking out of walled gardens
+- Text editor and a web browser
+- Going vanilla
+- Use it now
+  - Flexbox
+  - WebRTC
+  - WebGL2
+  - Trusted web activity
+- Stuff you might not know you can do
+  - orientation in webmanifest
+  - accelerometer
+  - notch handling in css
+  - MIDI
+  - USB input
+  - Serial input
+  - Bluetooth
+  - Webauthn
+  - Pointer events
+  - Push notifications
+- Examples
+  - Uber
+  - Spotify
+  - Twitter lite
+  - krunker.io
+  - ioMeter flower
+- Limitations
+- The future
+  - WebGPU
+  - WebTransport
+  - HTTP/3
+  - CSS Houdini
+  - navigator.registerProtocolHandler() and/or manifest handler
+  - Shape Detection API
+- The fact that the web exists is a miracle
+
+- Accessability
+
+- Shadertoy
