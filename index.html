@@ -628,11 +628,14 @@
 	</body>
 
 	<style>
+		/*Global styles*/
+
 		html {
 			height: 100%;
 			scroll-behavior: smooth;
 			scroll-snap-type: x mandatory;
 			overflow-x: scroll;
+			overflow-y: hidden;
 		}
 		body {
 			height: 100%;
@@ -641,6 +644,27 @@
 			color: white;
 			font-family: sans-serif;
 			font-size: 2.5vw;
+		}
+
+		@media print {
+			html {
+				overflow-x: hidden;
+				overflow-y: scroll;
+			}
+			body {
+				flex-direction: column;
+			}
+			nav {
+				display: none !important;
+			}
+			[data-reveal] {
+				transition: none !important;
+			}
+			[data-reveal]:not(.revealed) {
+				height: unset !important;
+				margin: unset !important;
+				opacity: unset !important;
+			}
 		}
 
 		* {
