@@ -12,23 +12,23 @@
 			<button class="next">&rarr;</button>
 		</nav>
 
-		<section id="section-1">
+		<section id="title">
 			<h1>PWAs</h1>
 			<h2 data-reveal="1">Web apps with native capabilities</h2>
 		</section>
 		<style>
-			#section-1 {
+			#title {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				text-align: center;
 			}
-			#section-1 h1 {
+			#title h1 {
 				font-size: 2.5em;
 			}
 		</style>
 
-		<section id="section-2">
+		<section id="taps-to-pixels">
 			<h1>Taps to Pixels</h1>
 			<div reveal="1" class="table">
 				<div class="stage browser">
@@ -80,52 +80,52 @@
 			</div>
 		</section>
 		<style>
-			#section-2 {
+			#taps-to-pixels {
 				display: flex;
 				flex-direction: column;
 			}
-			#section-2 .table {
+			#taps-to-pixels .table {
 				width: 100%;
 				flex-grow: 1;
 				display: flex;
 			}
-			#section-2 .table h2 {
+			#taps-to-pixels .table h2 {
 				text-align: center;
 			}
-			#section-2 .table > :not(.arrow) {
+			#taps-to-pixels .table > :not(.arrow) {
 				flex-basis: 1px;
 				flex-grow: 1;
 			}
-			#section-2 .stage {
+			#taps-to-pixels .stage {
 				display: flex;
 				flex-direction: column;
 			}
-			#section-2 .stage.browser {
+			#taps-to-pixels .stage.browser {
 				flex-basis: 5em;
 				flex-grow: 0;
 			}
-			#section-2 .stage.app .interfaces {
+			#taps-to-pixels .stage.app .interfaces {
 				flex-grow: 0;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 			}
-			#section-2 .stage.user {
+			#taps-to-pixels .stage.user {
 				flex-basis: 5em;
 				flex-grow: 1;
 			}
-			#section-2 .stage.user > div {
+			#taps-to-pixels .stage.user > div {
 				flex-grow: 1;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 			}
-			#section-2 .stage.user svg {
+			#taps-to-pixels .stage.user svg {
 				flex-grow: 1;
 				width: 4em;
 				height: 4em;
 			}
-			#section-2 .component {
+			#taps-to-pixels .component {
 				flex-grow: 1;
 				border: 2px solid white;
 				border-radius: .5em;
@@ -134,11 +134,11 @@
 				display: flex;
 				flex-direction: column;
 			}
-			#section-2 .blockers {
+			#taps-to-pixels .blockers {
 				flex-grow: 1;
 				display: flex;
 			}
-			#section-2 .blockers .tag {
+			#taps-to-pixels .blockers .tag {
 				writing-mode: vertical-rl;
 				display: flex;
 				justify-content: center;
@@ -146,17 +146,17 @@
 				transition: opacity .5s, width .5s .5s, margin-right .5s .5s;
 				padding: 0;
 			}
-			#section-2 .blockers .tag:not(.eliminate) {
+			#taps-to-pixels .blockers .tag:not(.eliminate) {
 				width: 4em;
 				margin-right: .5em;
 				opacity: 1;
 			}
-			#section-2 .blockers .tag.eliminate {
+			#taps-to-pixels .blockers .tag.eliminate {
 				opacity: 0;
 				width: 0;
 				margin-right: 0;
 			}
-			#section-2 .table .arrow {
+			#taps-to-pixels .table .arrow {
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -166,16 +166,16 @@
 				flex-grow: 0;
 				font-weight: bold;
 			}
-			#section-2 .table > .arrow {
+			#taps-to-pixels .table > .arrow {
 				padding-top: 1.1em;
 			}
-			#section-2 .table .arrow.user {
+			#taps-to-pixels .table .arrow.user {
 				flex-grow: 1;
 			}
-			#section-2 .tags {
+			#taps-to-pixels .tags {
 				padding: .2em;
 			}
-			#section-2 .tag {
+			#taps-to-pixels .tag {
 				font-size: .7em;
 				font-weight: bold;
 				border-radius: .4em;
@@ -183,18 +183,18 @@
 				margin-bottom: .2em;
 				cursor: pointer;
 			}
-			#section-2 .stage.browser .tag { background: #e76f51; }
-			#section-2 .stage.app     .tag { background: #e9c46a; }
-			#section-2 .stages {
+			#taps-to-pixels .stage.browser .tag { background: #e76f51; }
+			#taps-to-pixels .stage.app     .tag { background: #e9c46a; }
+			#taps-to-pixels .stages {
 				display: flex;
 				flex-grow: 1;
 			}
-			#section-2 .stages > * {
+			#taps-to-pixels .stages > * {
 				flex-grow: 1;
 			}
 		</style>
 		<script>
-			document.getElementById('section-2').onclick = event => {
+			document.getElementById('taps-to-pixels').onclick = event => {
 				const tag = event.target.closest('.tag');
 				if (tag) {
 					tag.classList.add('eliminate');
@@ -202,7 +202,7 @@
 			}
 		</script>
 
-		<section id="section-3">
+		<section id="pipeline">
 			<h1>Pipeline</h1>
 			<div class="graph">
 				<span class="milestone">
@@ -246,18 +246,18 @@
 			</div>
 		</section>
 		<style>
-			#section-3 {
+			#pipeline {
 				display: flex;
 				flex-direction: column;
 			}
-			#section-3 .graph {
+			#pipeline .graph {
 				flex-grow: 1;
 				z-index: 1;
 				display: flex;
 				justify-content: stretch;
 				align-items: center;
 			}
-			#section-3 .milestone {
+			#pipeline .milestone {
 				padding: 5vw;
 				font-size: 1.3em;
 				font-weight: bold;
@@ -266,18 +266,18 @@
 				justify-content: center;
 				align-items: center;
 			}
-			#section-3 .milestone img {
+			#pipeline .milestone img {
 				width:  8vw;
 				height: 8vw;
 				margin: 1vw;
 			}
-			#section-3 .iterate {
+			#pipeline .iterate {
 				display: flex;
 				justify-content: stretch;
 				align-items: center;
 				position: relative;
 			}
-			#section-3 .iterate .loop {
+			#pipeline .iterate .loop {
 				position: absolute;
 				top: calc(100% + 1.7vw);
 				left: 1vw;
@@ -285,7 +285,7 @@
 				height: 1vw;
 				background: #4b81ff;
 			}
-			#section-3 .iterate .loop::before {
+			#pipeline .iterate .loop::before {
 				content: '';
 				display: block;
 				width: 3vw;
@@ -299,7 +299,7 @@
 					</svg>\
 				');
 			}
-			#section-3 .iterate .loop::after {
+			#pipeline .iterate .loop::after {
 				content: '';
 				display: block;
 				width: 3vw;
@@ -313,13 +313,13 @@
 					</svg>\
 				');
 			}
-			#section-3 .milestone:first-of-type {
+			#pipeline .milestone:first-of-type {
 				margin-right: auto;
 			}
-			#section-3 .milestone:last-of-type {
+			#pipeline .milestone:last-of-type {
 				margin-left: auto;
 			}
-			#section-3 .block {
+			#pipeline .block {
 				background-color: #264653;
 				height: 4vw;
 				width: 3vw;
@@ -327,33 +327,33 @@
 				margin-right: 1vw;
 				position: relative;
 			}
-			#section-3 .block label {
+			#pipeline .block label {
 				position: absolute;
 				width: 30vw;
 				font-size: .8em;
 				color: #264653;
 			}
-			#section-3 .block label::before {
+			#pipeline .block label::before {
 				content: '';
 				display: block;
 				position: absolute;
 				width: 1px;
 				background: #264653;
 			}
-			#section-3 .block.odd label { bottom: calc(100% + (3vw * var(--block-odd))); }
-			#section-3 .block.odd label::before { top: 100%; bottom: calc((-3vw * var(--block-odd)) + .5vw); }
-			#section-3 .block.even label { top: calc(100% + (3vw * var(--block-even))); }
-			#section-3 .block.even label::before { top: calc((-3vw * var(--block-even)) + 3.5vw); bottom: 100%; }
+			#pipeline .block.odd label { bottom: calc(100% + (3vw * var(--block-odd))); }
+			#pipeline .block.odd label::before { top: 100%; bottom: calc((-3vw * var(--block-odd)) + .5vw); }
+			#pipeline .block.even label { top: calc(100% + (3vw * var(--block-even))); }
+			#pipeline .block.even label::before { top: calc((-3vw * var(--block-even)) + 3.5vw); bottom: 100%; }
 		</style>
 		<script>
-			document.querySelector('#section-3 .graph').onwheel = event => {
+			document.querySelector('#pipeline .graph').onwheel = event => {
 				const block = event.target.closest('.block');
 				if (block) {
 					const newWidth = Math.max(1, (parseInt(block.style.minWidth) || 4) + (event.deltaY > 0 ? -1 : 1));
 					block.style.minWidth = `${newWidth}vw`;
 				}
 			}
-			document.querySelector('#section-3 .graph').onclick = event => {
+			document.querySelector('#pipeline .graph').onclick = event => {
 				const block = event.target.closest('.block');
 				if (block) {
 					block.remove();
@@ -366,7 +366,7 @@
 			}
 		</script>
 
-		<section id="section-4">
+		<section id="examples">
 			<h1>Examples</h1>
 			<div class="examples">
 				<div>
@@ -396,35 +396,35 @@
 			</div>
 		</section>
 		<style>
-			#section-4 {
+			#examples {
 				display: flex;
 				flex-direction: column;
 				height: 100%;
 			}
-			#section-4 .examples {
+			#examples .examples {
 				flex-grow: 1;
 				overflow-y: auto;
 				scrollbar-width: none;
 				scroll-behavior: smooth;
 				scroll-snap-type: y mandatory;
 			}
-			#section-4 .examples::-webkit-scrollbar {
+			#examples .examples::-webkit-scrollbar {
 				display: none;
 			}
-			#section-4 .examples > div {
+			#examples .examples > div {
 				margin-bottom: 5vw;
 				display: flex;
 				align-items: center;
 				height: 85vh;
 				scroll-snap-align: center;
 			}
-			#section-4 .logo {
+			#examples .logo {
 				width: 12vw;
 				height: 12vw;
 				margin: 7vw;
 				filter: drop-shadow(0 .5vw 1.5vw rgba(0, 0, 0, .4));
 			}
-			#section-4 .phone {
+			#examples .phone {
 				margin: 2vw;
 				--height: 35vw;
 				height: var(--height);
@@ -435,14 +435,14 @@
 				border-radius: calc(var(--height) / 14);
 				background: black;
 			}
-			#section-4 .phone img {
+			#examples .phone img {
 				position: absolute;
 				top: 5.0%;
 				left: 3.5%;
 				width: 93%;
 				height: 92.4%;
 			}
-			#section-4 .phone::after {
+			#examples .phone::after {
 				content: '';
 				display: block;
 				position: absolute;
@@ -450,7 +450,7 @@
 				height: 100%;
 				background: no-repeat center / contain url('images/pixel4.png');
 			}
-			#section-4 .laptop {
+			#examples .laptop {
 				margin: 2vw;
 				--height: 25vw;
 				height: var(--height);
@@ -458,14 +458,14 @@
 				width: calc(var(--height) * var(--aspect-ratio));
 				position: relative;
 			}
-			#section-4 .laptop img {
+			#examples .laptop img {
 				position: absolute;
 				top: 6.9%;
 				left: 11.5%;
 				width: 77%;
 				height: 82%;
 			}
-			#section-4 .laptop::after {
+			#examples .laptop::after {
 				content: '';
 				display: block;
 				position: absolute;
@@ -475,7 +475,7 @@
 			}
 		</style>
 
-		<section id="section-5">
+		<section id="browser-support">
 			<div class="features">
 				<div data-browsers="chrome firefox safari"> Add to Home Screen </div>
 				<div data-browsers="chrome">                beforeinstallprompt </div>
@@ -503,21 +503,21 @@
 			</div>
 		</section>
 		<style>
-			#section-5 {
+			#browser-support {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 				user-select: none;
 			}
-			#section-5 .features {
+			#browser-support .features {
 				margin: 3vw;
 				font-size: 2em;
 				position: relative;
 				width: 100%;
 				height: 10vh;
 			}
-			#section-5 .features > div {
+			#browser-support .features > div {
 				position: absolute;
 				left: 0;
 				top: 0;
@@ -526,31 +526,31 @@
 				transition: opacity .5s, transform .5s;
 				text-align: center;
 			}
-			#section-5 .features > div:not(.selected) {
+			#browser-support .features > div:not(.selected) {
 				opacity: 0;
 			}
-			#section-5 .features > div.selected {
+			#browser-support .features > div.selected {
 				opacity: 1;
 			}
-			#section-5 .features > div.above {
+			#browser-support .features > div.above {
 				transform: translateY(-10vh);
 			}
-			#section-5 .features > div.below {
+			#browser-support .features > div.below {
 				transform: translateY(10vh);
 			}
-			#section-5 .browsers img {
+			#browser-support .browsers img {
 				width:  8vw;
 				height: 8vw;
 				margin: 2vw;
 				transition: .5s filter;
 			}
-			#section-5 .browsers img.unavailable {
+			#browser-support .browsers img.unavailable {
 				filter: grayscale(100%);
 			}
 		</style>
 		<script>
-			const features = [...document.querySelectorAll('#section-5 .features > div')];
-			const browsers = [...document.querySelectorAll('#section-5 .browsers > img')];
+			const features = [...document.querySelectorAll('#browser-support .features > div')];
+			const browsers = [...document.querySelectorAll('#browser-support .browsers > img')];
 			function selectFeature(el) {
 				const selectedIndex = features.indexOf(el);
 				features.forEach((feature, index) => {
@@ -562,11 +562,11 @@
 					browser.classList.toggle('unavailable', !el.dataset.browsers.split(' ').includes(browser.dataset.browser));
 				});
 			}
-			selectFeature(document.querySelector('#section-5 .features > div'));
-			document.querySelector('#section-5').onclick = event => {
+			selectFeature(document.querySelector('#browser-support .features > div'));
+			document.getElementById('browser-support').onclick = event => {
 				event.preventDefault();
 				event.stopPropagation();
-				const selectedFeature = document.querySelector('#section-5 .features > .selected');
+				const selectedFeature = document.querySelector('#browser-support .features > .selected');
 				if (selectedFeature) {
 					if (event.pageY >= (window.innerHeight / 2) && selectedFeature.nextElementSibling) {
 						selectFeature(selectedFeature.nextElementSibling);
@@ -578,7 +578,7 @@
 			}
 		</script>
 
-		<section id="section-6">
+		<section id="triforce">
 			<h1>Triforce of Power</h1>
 			<img src="images/devtools.png" data-reveal="1">
 			<div class="mdn-and-kate">
@@ -587,41 +587,41 @@
 			</div>
 		</section>
 		<style>
-			#section-6 {
+			#triforce {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 			}
-			#section-6 img {
+			#triforce img {
 				margin: 1vw;
 				box-shadow: 0 .5vw 2vw black;
 			}
-			#section-6 img[src='images/devtools.png'].revealed {
+			#triforce img[src='images/devtools.png'].revealed {
 				height: 34vh;
 			}
-			#section-6 .mdn-and-kate img.revealed {
+			#triforce .mdn-and-kate img.revealed {
 				height: 35vh;
 			}
 		</style>
 
-		<section id="section-7">
+		<section id="miracle">
 			<img src="images/berners-lee.jpg">
 			<h1 data-reveal="1">The web's existence is a miracle</h1>
 		</section>
 		<style>
-			#section-7 {
+			#miracle {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 			}
-			#section-7 img {
+			#miracle img {
 				height: 60vh;
 				object-fit: contain;
 				box-shadow: 0 .5vw 2vw black;
 			}
-			#section-7 h1 {
+			#miracle h1 {
 				margin: 5vh;
 			}
 		</style>
@@ -677,13 +677,12 @@
 			width: 100%;
 			padding: 20px;
 		}
-		#section-1 { background: #264653; }
-		#section-2 { background: #2a9d8f; }
-		#section-3 { background: #e9c46a; }
-		#section-4 { background: #f4a261; }
-		#section-5 { background: #e76f51; }
-		#section-6 { background: #264653; }
-		#section-7 { background: #264653; }
+
+		section:nth-of-type(5n+1) { background: #264653; }
+		section:nth-of-type(5n+2) { background: #2a9d8f; }
+		section:nth-of-type(5n+3) { background: #e9c46a; }
+		section:nth-of-type(5n+4) { background: #f4a261; }
+		section:nth-of-type(5n+5) { background: #e76f51; }
 
 		[data-reveal] {
 			transition: height .5s, margin .5s, opacity .5s .5s;
@@ -700,13 +699,27 @@
 	</style>
 
 	<script>
+		// Navigation logic
+
 		'use strict';
 
 		function nav(delta) {
-			let i = (parseInt(location.hash.slice('#section-'.length)) || 1) + delta;
-			i = Math.max(i, 1);
-			i = Math.min(i, document.querySelectorAll('section').length);
-			location.hash = `section-${i}`;
+			const allSections = [...document.querySelectorAll('section')];
+			let currentSection = null;
+			if (location.hash) {
+				currentSection = document.querySelector(`section${location.hash}`);
+			}
+			if (!currentSection) {
+				currentSection = allSections.find(section => {
+					const BBox = section.getBoundingClientRect();
+					return (BBox.x <= 0 && BBox.right >= (window.innerWidth/2)) ||
+					       (BBox.right >= window.innerWidth && BBox.x <= (window.innerWidth/2));
+				});
+			}
+			const sectionIndex = allSections.indexOf(currentSection) + delta;
+			if (sectionIndex >= 0 && sectionIndex < allSections.length) {
+				location.hash = allSections[sectionIndex].id;
+			}
 		}
 		document.querySelector('nav .prev').onclick = () => nav(-1);
 		document.querySelector('nav .next').onclick = () => nav(1);
@@ -715,6 +728,11 @@
 				case 37: nav(-1); event.preventDefault(); break;
 				case 39: nav(1);  event.preventDefault(); break;
 			}
+		}
+
+		window.onresize = () => {
+			const hash = location.hash.slice(1);
+			document.documentElement.scrollLeft = document.querySelector(`section#${hash}`).offsetLeft;
 		}
 
 		document.body.onclick = event => {
